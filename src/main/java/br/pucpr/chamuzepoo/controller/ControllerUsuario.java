@@ -21,7 +21,7 @@ public class ControllerUsuario {
     );
 
     public ControllerUsuario() {
-
+        inicializarAdminMaster();
     }
 
     public ControllerUsuario(Usuario usuario) {
@@ -144,23 +144,24 @@ public class ControllerUsuario {
         return false;
     }
 
-    public static ArrayList<Admin> listarAdmins() {
-        ControllerUsuario controller = new ControllerUsuario(); // Cria instância se precisar
-        ArrayList<Admin> admins = controller.lerAdmins(); // Supondo que lerAdmins() não é estático
+    public boolean atualizarAdmin(Admin admin) {
+        try {
+            ArrayList<Admin> admins = lerAdmins();
 
-        if (admins.stream().noneMatch(a -> a.getEmail().equals(ADMIN_MASTER.getEmail()))) {
-            admins.add(ADMIN_MASTER);
+            for (int i = 0; i < admins.size(); i++) {
+                if (admins.get(i).getEmail().equals(admin.getEmail())) {
+                    admins.set(i, admin);
+                    salvarAdmins(admins);
+                    return true;
+                }
+            }
+
+        } catch (Exception e) {
+            System.err.println("Erro ao atualizar admin: " + e.getMessage());
         }
-        return admins;
+        return false;
     }
 
-    private void inicializarAdminMaster() {
-        ArrayList<Admin> admins = lerAdmins();
-        if (admins.stream().noneMatch(a -> a.getEmail().equals(ADMIN_MASTER.getEmail()))) {
-            admins.add(ADMIN_MASTER);
-            salvarAdmins(admins);
-        }
-    }
     public boolean excluirAdmin(Admin admin) {
         try {
             ArrayList<Admin> admins = lerAdmins();
@@ -178,6 +179,24 @@ public class ControllerUsuario {
         } catch (Exception e) {
             System.err.println("Erro ao excluir admin: " + e.getMessage());
             return false;
+        }
+    }
+
+    public static ArrayList<Admin> listarAdmins() {
+        ControllerUsuario controller = new ControllerUsuario(); // Cria instância se precisar
+        ArrayList<Admin> admins = controller.lerAdmins(); // Supondo que lerAdmins() não é estático
+
+        if (admins.stream().noneMatch(a -> a.getEmail().equals(ADMIN_MASTER.getEmail()))) {
+            admins.add(ADMIN_MASTER);
+        }
+        return admins;
+    }
+
+    private void inicializarAdminMaster() {
+        ArrayList<Admin> admins = lerAdmins();
+        if (admins.stream().noneMatch(a -> a.getEmail().equals(ADMIN_MASTER.getEmail()))) {
+            admins.add(ADMIN_MASTER);
+            salvarAdmins(admins);
         }
     }
 
