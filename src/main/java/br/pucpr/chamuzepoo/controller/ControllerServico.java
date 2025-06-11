@@ -9,6 +9,7 @@ public class ControllerServico {
     public ControllerServico(Servico servico) {
         this.servico = servico;
     }
+
     public static void salvarLista(ArrayList<Servico> servico) {
         try {
             File arq = new File(CAMINHO_ARQUIVO);
