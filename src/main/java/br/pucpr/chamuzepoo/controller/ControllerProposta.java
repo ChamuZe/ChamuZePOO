@@ -1,6 +1,6 @@
-package br.pucpr.chamuzejava.controller;
+package br.pucpr.chamuzepoo.controller;
 
-import br.pucpr.chamuzejava.model.Proposta;
+import br.pucpr.chamuzepoo.model.Proposta;
 
 import java.io.*;
 import java.util.ArrayList;

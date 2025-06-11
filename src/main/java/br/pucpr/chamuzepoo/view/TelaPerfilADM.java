@@ -1,8 +1,8 @@
-package br.pucpr.chamuzejava.view;
+package br.pucpr.chamuzepoo.view;
 
 import br.pucpr.chamuzepoo.Main;
-import br.pucpr.chamuzejava.controller.ControllerUsuario;
-import br.pucpr.chamuzejava.model.Admin;
+import br.pucpr.chamuzepoo.controller.ControllerUsuario;
+import br.pucpr.chamuzepoo.model.Admin;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;

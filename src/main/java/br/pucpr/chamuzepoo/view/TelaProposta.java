@@ -1,8 +1,8 @@
-package br.pucpr.chamuzejava.view;
+package br.pucpr.chamuzepoo.view;
 
-import br.pucpr.chamuzejava.controller.ControllerProposta;
-import br.pucpr.chamuzejava.controller.ControllerUsuario;
-import br.pucpr.chamuzejava.model.Proposta;
+import br.pucpr.chamuzepoo.controller.ControllerProposta;
+import br.pucpr.chamuzepoo.controller.ControllerUsuario;
+import br.pucpr.chamuzepoo.model.Proposta;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;

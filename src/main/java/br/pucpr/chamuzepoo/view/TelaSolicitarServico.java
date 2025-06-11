@@ -1,9 +1,10 @@
-package br.pucpr.chamuzejava.view;
+package br.pucpr.chamuzepoo.view;
+
 import br.pucpr.chamuzepoo.Main;
-import br.pucpr.chamuzejava.controller.ControllerServico;
+import br.pucpr.chamuzepoo.controller.ControllerServico;
 import br.pucpr.chamuzejava.file.Categoria;
 import br.pucpr.chamuzejava.file.LocalServico;
-import br.pucpr.chamuzejava.model.Servico;
+import br.pucpr.chamuzepoo.model.Servico;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -92,7 +93,7 @@ public class TelaSolicitarServico {
         telaSolicitarServico.add(botaoVoltarParaLogin, 1, 21);
 
         botaoVoltarParaLogin.setOnAction(evento -> {
-            Main.mudarCena(TelaLogin.criarTela());
+            Main.mudarCena(TelaSolicitanteInicial.criarTela());
         });
 
         return new Scene(telaSolicitarServico, 1000, 500);

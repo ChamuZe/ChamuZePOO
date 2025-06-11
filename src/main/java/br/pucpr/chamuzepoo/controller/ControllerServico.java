@@ -1,5 +1,5 @@
-package br.pucpr.chamuzejava.controller;
-import br.pucpr.chamuzejava.model.Servico;
+package br.pucpr.chamuzepoo.controller;
+import br.pucpr.chamuzepoo.model.Servico;
 
 import java.io.*;
 import java.util.ArrayList;

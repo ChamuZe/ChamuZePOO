@@ -1,16 +1,16 @@
-package br.pucpr.chamuzejava.controller;
+package br.pucpr.chamuzepoo.controller;
 
-import br.pucpr.chamuzejava.model.Admin;
-import br.pucpr.chamuzejava.model.Usuario;
-
+import br.pucpr.chamuzepoo.model.Admin;
+import br.pucpr.chamuzepoo.model.Usuario;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.UUID;
 
 public class ControllerUsuario {
     // Constantes com os caminhos dos arquivos
-    private final String CAMINHO_ARQUIVO = "baseDeDados.dat";
+    private final String CAMINHO_ARQUIVO = "Usuarios.dat";
     private final String CAMINHO_ADMINS = "admins.dat";
     private Usuario usuario;
     public static Usuario usuarioLogado;
@@ -71,6 +71,22 @@ public class ControllerUsuario {
         usuarios.add(this.usuario);
         salvarLista(usuarios);
     }
+
+    public boolean excluirUsuario(){
+        ArrayList<Usuario> usuarios = lerLista();
+
+        Iterator<Usuario> it = usuarios.iterator();
+        while(it.hasNext()){
+            Usuario usuario = it.next();
+            if(usuarioLogado.getId().equals(usuario.getId())){
+                it.remove(); // remove com segurança durante a iteração
+                salvarLista(usuarios); // salva lista atualizada
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public boolean verificarIdExiste(UUID idGerado, ArrayList<Usuario> usuarios){
         for(Usuario usuario: usuarios){

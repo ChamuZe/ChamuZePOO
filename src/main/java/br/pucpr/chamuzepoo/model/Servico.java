@@ -1,4 +1,4 @@
-package br.pucpr.chamuzejava.model;
+package br.pucpr.chamuzepoo.model;
 import br.pucpr.chamuzejava.file.Categoria;
 import br.pucpr.chamuzejava.file.StatusServico;
 import br.pucpr.chamuzejava.file.LocalServico;

@@ -1,4 +1,4 @@
-package br.pucpr.chamuzejava.model;
+package br.pucpr.chamuzepoo.model;
 
 import java.time.LocalDate;
 

@@ -3,7 +3,7 @@ package br.pucpr.chamuzepoo;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import br.pucpr.chamuzejava.view.TelaLogin;
+import br.pucpr.chamuzepoo.view.TelaLogin;
 
 public class Main extends Application{
     private static Stage palco;

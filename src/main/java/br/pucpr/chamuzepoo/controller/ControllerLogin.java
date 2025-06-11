@@ -1,4 +1,4 @@
-package br.pucpr.chamuzejava.controller;
+package br.pucpr.chamuzepoo.controller;
 
 public class ControllerLogin {
 }

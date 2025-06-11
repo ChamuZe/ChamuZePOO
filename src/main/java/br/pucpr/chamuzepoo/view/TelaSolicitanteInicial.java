@@ -1,4 +1,4 @@
-package br.pucpr.chamuzejava.view;
+package br.pucpr.chamuzepoo.view;
 
 import br.pucpr.chamuzepoo.Main;
 import javafx.geometry.Insets;

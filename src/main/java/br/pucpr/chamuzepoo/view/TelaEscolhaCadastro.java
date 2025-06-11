@@ -1,4 +1,4 @@
-package br.pucpr.chamuzejava.view;
+package br.pucpr.chamuzepoo.view;
 
 import br.pucpr.chamuzepoo.Main;
 import javafx.geometry.HPos;
@@ -52,9 +52,14 @@ public class TelaEscolhaCadastro {
 
         // Botão voltar para Login
         Button botaoVoltarLogin = new Button("Voltar");
-        botaoVoltarLogin.setPrefWidth(300);
+        botaoVoltarLogin.setPrefWidth(100); // largura menor
         botaoVoltarLogin.setStyle("-fx-background-color: #6C757D; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
         telaEscolhaCadastro.add(botaoVoltarLogin, 0, 3);
+
+        // Alinhar à direita e dar margem superior
+        GridPane.setHalignment(botaoVoltarLogin, HPos.RIGHT);
+        GridPane.setMargin(botaoVoltarLogin, new Insets(20, 0, 0, 0)); // margem de cima
+
 
         botaoVoltarLogin.setOnAction(evento -> {
             Main.mudarCena(TelaLogin.criarTela());
