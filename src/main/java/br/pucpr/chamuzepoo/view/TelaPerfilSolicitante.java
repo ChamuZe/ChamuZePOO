@@ -18,6 +18,10 @@ import java.time.format.DateTimeFormatter;
 
 public class TelaPerfilSolicitante {
     public static Scene criarTela() {
+        BorderPane layoutPrincipal = new BorderPane();
+        // Usa o navbar da fábrica
+        layoutPrincipal.setTop(HeaderTelaSolicitante.criarNavbarSolicitante());
+
         GridPane telaPerfilSolicitante = new GridPane();
 
         telaPerfilSolicitante.setPadding(new Insets(40));
@@ -137,6 +141,8 @@ public class TelaPerfilSolicitante {
         telaPerfilSolicitante.add(card, 0, 0);
         GridPane.setHalignment(card, HPos.CENTER);
 
-        return new Scene(telaPerfilSolicitante, 1100, 700);
+        layoutPrincipal.setCenter(telaPerfilSolicitante);
+
+        return new Scene(layoutPrincipal, 1100, 700);
     }
 }

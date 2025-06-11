@@ -6,42 +6,31 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.*;
 
 public class TelaSolicitanteInicial {
     public static Scene criarTela() {
-        // Tela do solicitante
-        GridPane telaSolicitante = new GridPane();
-        telaSolicitante.setHgap(10);
-        telaSolicitante.setVgap(20);
-        telaSolicitante.setPadding(new Insets(20));
-        telaSolicitante.setAlignment(Pos.TOP_CENTER);
+        BorderPane layoutPrincipal = new BorderPane();
 
-        // Barra de navegação
-        HBox barraDeNavegacao = new HBox();
-        barraDeNavegacao.setSpacing(15);
-        barraDeNavegacao.setPadding(new Insets(10));
-        barraDeNavegacao.setAlignment(Pos.CENTER_LEFT);
+        // Usa o navbar da fábrica
+        layoutPrincipal.setTop(HeaderTelaSolicitante.criarNavbarSolicitante());
 
-        // Botões do NAVBAR
-        Button botaoPerfil = new Button("Perfil");
-        botaoPerfil.setOnAction(e -> Main.mudarCena(TelaPerfilSolicitante.criarTela()));
+        // Conteúdo central
+        VBox conteudo = new VBox(20);
+        conteudo.setPadding(new Insets(30));
+        conteudo.setAlignment(Pos.TOP_CENTER);
 
-        Button botaoSolicitarServico = new Button("Solicitar Serviço");
-        botaoSolicitarServico.setOnAction(e -> Main.mudarCena(TelaSolicitarServico.criarTela()));
+        Label titulo = new Label("Bem-vindo(a) à plataforma ChamuZé!");
+        titulo.setStyle("-fx-font-size: 26px; -fx-font-weight: bold;");
 
-        // Adiciona os botões à barra de navegação
-        barraDeNavegacao.getChildren().addAll(botaoPerfil, botaoSolicitarServico);
+        Button btnAdicionarServico = new Button("Solicitar Serviço");
+        btnAdicionarServico.setStyle("-fx-background-color: #ffc107; -fx-text-fill: black; -fx-text-fill: black; -fx-font-size:16px;");
+        btnAdicionarServico.setOnAction(e -> Main.mudarCena(TelaSolicitarServico.criarTela()));
 
-        // Adição da barra de navegação na tela
-        telaSolicitante.add(barraDeNavegacao, 0, 0);
+        conteudo.getChildren().addAll(titulo, btnAdicionarServico);
 
-        // Título da tela
-        Label tituloTelaSolicitante = new Label("Bem-vindo(a), Solicitante!");
-        tituloTelaSolicitante.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
-        telaSolicitante.add(tituloTelaSolicitante, 0, 1);
+        layoutPrincipal.setCenter(conteudo);
 
-        return new Scene(telaSolicitante, 1000, 500);
+        return new Scene(layoutPrincipal, 1100, 700);
     }
 }
