@@ -112,7 +112,9 @@ public class TelaPerfilPrestador {
         Button botaoEditar = new Button("Editar");
         botaoEditar.setPrefWidth(150);
         botaoEditar.setStyle("-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-font-size:16px;");
-        botaoEditar.setOnAction(e -> System.out.println("Vai editar Usuário"));
+        botaoEditar.setOnAction(e -> {
+            Main.mudarCena(TelaEditarPrestador.criarTela());
+        });
 
         Button botaoExcluir = new Button("Excluir");
         botaoExcluir.setPrefWidth(150);

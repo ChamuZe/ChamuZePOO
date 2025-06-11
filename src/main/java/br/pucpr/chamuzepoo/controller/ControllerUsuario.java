@@ -87,6 +87,24 @@ public class ControllerUsuario {
         return false;
     }
 
+    public boolean atualizarUsuario(Usuario usuario) {
+        try {
+            ArrayList<Usuario> usuarios = lerLista();
+
+            for (int i = 0; i < usuarios.size(); i++) {
+                if (usuarios.get(i).getEmail().equals(usuario.getEmail())) {
+                    usuarios.set(i, usuario);
+                    salvarLista(usuarios);
+                    return true;
+                }
+            }
+
+        } catch (Exception e) {
+            System.err.println("Erro ao atualizar Usuário: " + e.getMessage());
+        }
+        return false;
+    }
+
 
     public boolean verificarIdExiste(UUID idGerado, ArrayList<Usuario> usuarios){
         for(Usuario usuario: usuarios){
@@ -220,4 +238,5 @@ public class ControllerUsuario {
 
         return null;
     }
+
 }

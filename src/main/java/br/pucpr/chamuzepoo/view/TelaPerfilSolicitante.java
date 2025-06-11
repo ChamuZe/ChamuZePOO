@@ -12,7 +12,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 
-import javax.swing.text.DateFormatter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -90,7 +89,9 @@ public class TelaPerfilSolicitante {
         Button botaoEditarSolicitante = new Button("Editar dados");
         botaoEditarSolicitante.setPrefWidth(150);
         botaoEditarSolicitante.setStyle("-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-font-size:16px;");
-        botaoEditarSolicitante.setOnAction(e -> System.out.println("Vai editar Usuário"));
+        botaoEditarSolicitante.setOnAction(e -> {
+            Main.mudarCena(TelaEditarSolicitante.criarTela());
+        });
 
         Button botaoExcluirSolicitante = new Button("Excluir conta");
         botaoExcluirSolicitante.setPrefWidth(150);
