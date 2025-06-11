@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -20,6 +21,11 @@ import java.time.format.DateTimeFormatter;
 
 public class TelaPerfilPrestador {
     public static Scene criarTela() {
+
+        BorderPane layoutPrincipal = new BorderPane();
+        // Usa o navbar da fábrica
+        layoutPrincipal.setTop(HeaderTelaPrestador.criarNavbarPrestador());
+
         GridPane telaPerfilPrestador = new GridPane();
 
         telaPerfilPrestador.setPadding(new Insets(40));
@@ -159,6 +165,8 @@ public class TelaPerfilPrestador {
         telaPerfilPrestador.add(card, 0, 0);
         GridPane.setHalignment(card, HPos.CENTER);
 
-        return new Scene(telaPerfilPrestador, 1100, 700);
+        layoutPrincipal.setCenter(telaPerfilPrestador);
+
+        return new Scene(layoutPrincipal, 1100, 700);
     }
 }
