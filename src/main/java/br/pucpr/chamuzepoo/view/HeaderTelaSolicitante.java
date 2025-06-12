@@ -31,6 +31,7 @@ public class HeaderTelaSolicitante {
 
 
         Button btnServicos = criarBotaoEstilizado("Meus Serviços", "outline-warning");
+        btnServicos.setOnAction(e -> Main.mudarCena(TelaVerMeusServicos.criarTela()));
 
         Button btnPerfil = criarBotaoEstilizado("Perfil", "warning");
         btnPerfil.setOnAction(e -> Main.mudarCena(TelaPerfilSolicitante.criarTela()));

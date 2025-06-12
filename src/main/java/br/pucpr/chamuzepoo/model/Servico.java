@@ -3,10 +3,12 @@ import br.pucpr.chamuzejava.file.Categoria;
 import br.pucpr.chamuzejava.file.StatusServico;
 import br.pucpr.chamuzejava.file.LocalServico;
 import java.io.Serializable;
+import java.util.UUID;
 
 public class Servico implements Serializable{
     private static final long serialVersionUID = 1L;
-    private int solicitanteId;
+    private UUID id;
+    private String solicitanteId;
     private Proposta proposta;
     private String descricao;
     private String titulo;
@@ -15,7 +17,7 @@ public class Servico implements Serializable{
     private StatusServico statusServico;
     private double preco;
 
-    public Servico(int solicitanteId, String descricao, String titulo, Categoria categoria, LocalServico localServico, double preco ) {
+    public Servico(String solicitanteId, String descricao, String titulo, Categoria categoria, LocalServico localServico, double preco ) {
         this.descricao = descricao;
         this.titulo = titulo;
         this.solicitanteId = solicitanteId;
@@ -26,11 +28,11 @@ public class Servico implements Serializable{
         this.preco = preco;
     }
 
-    public int getSolicitanteId() {
+    public String getSolicitanteId() {
         return solicitanteId;
     }
 
-    public void setSolicitanteId(int solicitanteId) {
+    public void setSolicitanteId(String solicitanteId) {
         this.solicitanteId = solicitanteId;
     }
 
@@ -89,6 +91,16 @@ public class Servico implements Serializable{
     public void setPreco(double preco) {
         this.preco = preco;
     }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+
     @Override
     public String toString() {
         return "Descrição: " + descricao + "\nTitulo: " + titulo + "\nCategoria: " + categoria + "\nlocalServico" + "\nstatusServico: " + statusServico + "\nPreço: " + preco ;
